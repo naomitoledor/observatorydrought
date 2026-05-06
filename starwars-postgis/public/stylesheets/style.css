@@ -1,0 +1,330 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  padding: 0px 0px 0px 0px;
+  line-height: 1.1875em;
+  color: #031622;
+  width: 100%;
+}
+
+.center-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 58vh;
+}
+
+ol {
+  background: #031622; /* Fondo de la barra y del highlight*/
+  padding: 10px;
+}
+
+ol li {
+  background: #b2d9e2;
+  color: #031622;
+  padding: 5px 20px;
+  margin: 5px;
+}
+.submitted {
+  background: #f2b2d2;
+}
+
+ul {
+  background: #ff914d; /* Fondo de la barra y del highlight*/
+  padding: 0px;
+}
+ul li {
+  background: #ff914d; /* Color de fondo de drought hasta reference y del higtlight*/
+  color: #75a884;
+  margin: 0px;
+}
+
+.custom-navbar .navbar-nav > li > a:hover,
+.custom-navbar .navbar-nav > li.active > a {
+  color: #b2d9e2;; /* Azul oscuro */
+  background-color: #fb853c; /* Color de fondo de drought hasta reference al pasar el raton */
+}
+
+.custom-navbar .dropdown-menu {
+  border-color: #f89455; /* Contorno de menu desplegable */
+}
+
+.custom-navbar .navbar-right > li > a:hover {
+  color: #fb853c; /* Naranja */
+  background-color: #fb853c; /* Color de fondo de sing up y login al pasar el raton */
+}
+
+/* Color del grafico: casa*/
+.navbar-inverse .navbar-brand {
+      color: #b2d9e2;
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color: #ff914d;
+}
+/* Color del texto: drought hasta login*/
+.navbar-inverse .navbar-nav > li > a {
+  color: #b2d9e2;
+}
+/* Color del texto: Home*/
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #ff914d;
+  background-color: #9d9d9d;
+}
+/* Fondo del menú desplegable */
+.navbar-inverse .navbar-nav .dropdown-menu {
+  background-color: #ff914d;
+  color: #ffffff; /* Color del texto */
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+  color: #9d9d9d; /* Color del texto del enlace */
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
+  background-color: #ff914d; /* Color de fondo al pasar el ratón */
+  color: #031622; /* Color del texto al pasar el ratón */
+}
+.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus {
+  color: #ff914d;
+  background-color: #ff914d;
+}
+
+.navbar-inverse .navbar-nav.navbar-right > li > a {
+  color: #b2d9e2;
+}
+
+.navbar-inverse .navbar-nav.navbar-right > li > a:hover {
+  color: #b2d9e2;
+}
+
+.custom-navbar {
+  background-color: #ff914d; /* Color de fondo de la barra de navegación */
+  border-color: #f89455; /* Contorno de la barra de navegación */
+  border-radius: 0px;
+}
+
+.custom-navbar .container-fluid {
+  background-color: #ff914d; /* Color de fondo del contenedor de la barra de navegación */
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+  border-top-color: #9d9d9d; /* Color de la caret */
+  border-bottom-color: #9d9d9d; /* Color de la caret */
+}
+
+/* Estilo para la sección de logos */
+.ccl-header-logos-container img {
+  height: 75px;
+  margin: 5px;
+}
+
+/* Estilo para los enlaces principales */
+.ccl-header-nav a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Ajusta el margen y padding */
+.ccl-header-nav {
+  margin-bottom: 5px;
+}
+
+.ccl-header-nav .header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  color: #e65026; /* Text color */
+}
+
+/*FOOTER*/
+#footer-top {
+  padding: 20px 0;
+  text-align: right;
+}
+
+#footer-top img {
+  max-height: 80px;
+  margin: 0 10px;
+}
+
+#footer-bottom {
+  padding: 5px 0;
+  color: #b2d9e2;
+  text-align: center;
+  background-color: #031622;
+}
+.center-text {
+  text-align: center;
+}
+
+footer .address {
+  text-align: center; 
+  margin: 0 auto;}
+
+footer .address p {
+  background-color: #b2d9e2;
+  color: #031622;
+  margin: 5px 0;
+  text-align: center; 
+
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+footer address p {
+  background-color: #b2d9e2;
+  color: #031622;
+}
+
+/*HEATER*/
+#heater-bottom {
+  padding: 5px 0;
+  color: #b2d9e2;
+  background-color: #031622; /* Azul */
+}
+
+/*index3*/
+.form-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-box {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #b2d9e2; /* Background  form */
+}
+
+.form-box.submit {
+  background-color: #f2b2d2; /* Background submit form */
+}
+
+.form-box label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-box button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #036}
+
+  /* Botón de búsqueda */
+.form-container .form-box:nth-child(1) button {
+  background-color: #03658c; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Botón de envío */
+.form-container .form-box:nth-child(2) button {
+  background-color: #d75a82; /* Rosa */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container .form-box button:hover {
+  opacity: 0.9;
+}
+
+ /* Create two columns */
+ .column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left column */
+.left {
+  width: 30%;
+}
+
+/* Right column */
+.right {
+  width: 70%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Specific section styles */
+.section-title {
+  background-color: #fb853c;
+  color: #031622;
+  padding: 1px;
+  font-family: serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.section-form {
+  background-color: #b2d9e2;
+  padding: 10px;
+}
+
+.section-chart {
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+
+ /* INDEX 1*/
+ .column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 30%;
+}
+
+.right {
+  width: 70%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.section-title {
+  background-color: #fb853c;
+  color: #031622;
+  padding: 1px;
+  font-family: serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.section-form {
+  background-color: #b2d9e2;
+  padding: 10px;
+}
+
+.section-chart {
+  background-color: #ffffff;
+  padding: 10px;
+}

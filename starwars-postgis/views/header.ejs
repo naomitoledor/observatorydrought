@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="no-margin">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drought Observatory</title>
+  <link rel="Shortcut Icon" href="images/LOGO-short.png" />
+  
+  <!-- Cargar CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Lato" rel="stylesheet">
+  
+  <!-- Cargar CSS personalizado -->
+  <link rel="stylesheet" href="../stylesheets/style.css">
+
+  <!-- Cargar JS de jQuery y Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Cargar Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+  <div id="heater-bottom" class="bg-primary">
+    <span>
+      <div class="ccl-header-nav">
+        <div class="ccl-header-logos-container">
+          <img style="margin-left:20px; height: 150px;" src="images/LOGO-r.png" class="navbar-center" />
+          <a href="https://gracefo.jpl.nasa.gov/" target="_blank">
+            <img class="navbar-right" style="margin-right:20px; height: 75px;" src="images/GRACE-FO_01_25cbb76287.png" />
+          </a>
+          <a href="https://disc.gsfc.nasa.gov/" target="_blank">
+            <img class="navbar-right" style="margin-left:20px; height: 75px;" src="images/GES-DISC.png" />
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+  
+  <nav class="navbar navbar-inverse custom-navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand fa fa-home" href="#"></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/droughtobservatory">Mapviewer</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="/data">Data
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="https://nasagrace.unl.edu/Default.aspx">GRACE - DI</a></li>
+            <li><a target="_blank" href="https://daac.gsfc.nasa.gov/datasets/TRMM_3B43_7/summary">TRMM - SPI</a></li>
+            <li><a target="_blank" href="https://globalfiredata.org/data.html">GFED5 - Burned Area</a></li>
+            <li><a target="_blank" href="https://ggweather.com/enso/oni.htm">GGWEATHER - ONI</a></li>
+          </ul>
+        </li>
+        <li><a href="/reference">Reference</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</head>
+
+</html>
+

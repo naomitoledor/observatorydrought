@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= titleIndex3 %></title>
+</head>
+
+<%- include ('/Users/naomitoledo/Desktop/GEOPORTALES/node/starwars-postgis/views/header.ejs') %>
+
+<body>
+  <p>Welcome to <%= titleIndex3 %>, where you will find the publications on which the <b>publications</b> presented on this website is based. </p>
+
+  <div class="form-container">
+    <div class="form-box">
+      <h1>Search Publications</h1>
+      <form method="get" action="/publications">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author"><br>
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year"><br>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="keyword">Keywords:</label>
+        <input type="text" id="keyword" name="keyword"><br><br>
+
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="form-box">
+      <h1>Submit Publications</h1>
+      <form method="post" action="/add-publication">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author"><br>
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year"><br>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <h2>Results</h2>
+  <ol>
+    <% if (typeof publications !== 'undefined' && publications.length > 0) { %>
+      <% publications.forEach(publication => { %>
+        <li class="<%= publication.submitted ? 'submitted' : '' %>">
+          <strong><%= publication.author %></strong> (<%= publication.year %>) <%= publication.title %>
+          <% if (publication.submitted) { %>
+            <form method="post" action="/delete-publication/<%= publication.id %>" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          <% } %>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>No results found.</li>
+    <% } %>
+  </ol>
+  <%- include ('footer.ejs') %>
+</body>
+
+
+</html>
