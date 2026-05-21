@@ -1,7 +1,12 @@
 let timeSeriesChart;
 
 function fetchTimeSeries(latlng, levels) {
-    const geoserver_url = 'http://localhost:8080/geoserver';
+    const geoserver_url = window.APP_CONFIG && window.APP_CONFIG.geoserverUrl;
+    if (!geoserver_url) {
+        console.error('GeoServer is not configured. Set GEOSERVER_URL in the deployment environment.');
+        return;
+    }
+
     const bbox = map.getBounds().toBBoxString();
     const width = map.getSize().x;
     const height = map.getSize().y;

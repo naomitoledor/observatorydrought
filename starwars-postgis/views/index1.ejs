@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<%- include ('/Users/naomitoledo/Desktop/GEOPORTALES/node/starwars-postgis/views/header.ejs') %>
+<%- include('header.ejs') %>
 <body>
   <style>
     #map {height: 800px;}
@@ -61,6 +61,11 @@
     </div>
     
     <div id="map" class="column right" style="background-color:#ccc;"></div>
+    <script>
+      window.APP_CONFIG = {
+        geoserverUrl: <%- JSON.stringify(geoserverUrl) %>
+      };
+    </script>
     <script src="/javascripts/script.js"></script>
     <script  src="/javascripts/timeserie.js"></script>
     <%- include ('footer.ejs') %>

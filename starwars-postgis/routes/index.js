@@ -6,18 +6,49 @@ var fs = require('fs');//v
 var o2x = require('object-to-xml');
 var axios = require('axios'); ////
 
-var postgressPass = require('../config');
 const pgp = require('pg-promise')(/* options */)
-const db = pgp('postgres://naomitoledo:' + postgressPass + '@localhost:5432/starwars2')
+const databaseConfig = process.env.DATABASE_URL || (
+  process.env.PGHOST && process.env.PGDATABASE && process.env.PGUSER
+    ? {
+        host: process.env.PGHOST,
+        port: process.env.PGPORT || 5432,
+        database: process.env.PGDATABASE,
+        user: process.env.PGUSER,
+        password: process.env.PGPASSWORD,
+        ssl: process.env.PGSSLMODE === 'require' ? { rejectUnauthorized: false } : undefined
+      }
+    : null
+);
+const db = databaseConfig ? pgp(databaseConfig) : null;
 
 // Configuración de GeoServer
-const geoserver_url = 'http://localhost:8080/geoserver';
-const username = 'admin';
-const password = 'talVBR214!-*';
-const auth = { username: 'admin', password: 'talVBR214!-*' };
+const geoserver_url = process.env.GEOSERVER_URL
+  ? process.env.GEOSERVER_URL.replace(/\/$/, '')
+  : null;
+const geoserverAuth = process.env.GEOSERVER_USERNAME && process.env.GEOSERVER_PASSWORD
+  ? {
+      username: process.env.GEOSERVER_USERNAME,
+      password: process.env.GEOSERVER_PASSWORD
+    }
+  : null;
+
+function requireDatabase(req, res, next) {
+  if (!db) {
+    return res.status(503).render('error', {
+      message: 'Database is not configured',
+      error: {}
+    });
+  }
+
+  next();
+}
 
 // GET Map data
 router.get('/getMap', function(req, res, next) {
+  if (!geoserver_url) {
+    return res.status(503).json({ error: 'GeoServer is not configured' });
+  }
+
   const level = req.query.level;
   const year = req.query.year;
   const month = req.query.month;
@@ -33,7 +64,7 @@ router.get('/', function (req, res) {
 
 //GET Drought Observatory page
 router.get('/droughtobservatory', function (req, res) {
-      res.render('index1', { titleIndex1: 'Mapviewer'});
+      res.render('index1', { titleIndex1: 'Mapviewer', geoserverUrl: geoserver_url || null });
 });
 
 //GET Data page
@@ -48,7 +79,7 @@ router.get('/reference', function(req, res) {
 
 /* INDEX3*/
 /* Buscar publicaciones*/
-router.get('/publications', function(req, res, next) {
+router.get('/publications', requireDatabase, function(req, res, next) {
   let { author, year, title, keyword } = req.query;
   let query = `SELECT * FROM publications WHERE 1=1`;
   let params = [];
@@ -83,7 +114,7 @@ router.get('/publications', function(req, res, next) {
 });
 
 /* Añadir publicaciones*/
-router.post('/add-publication', function(req, res, next) {
+router.post('/add-publication', requireDatabase, function(req, res, next) {
   const { author, year, title } = req.body;
   const query = 'INSERT INTO publications ("author", "year", "title", "submitted") VALUES ($1, $2, $3, $4)';
   db.none(query, [author, year, title, true])
@@ -97,7 +128,7 @@ router.post('/add-publication', function(req, res, next) {
 });
 
 /* Eliminar publicaciones*/
-router.post('/delete-publication/:id', function(req, res, next) {
+router.post('/delete-publication/:id', requireDatabase, function(req, res, next) {
   const publicationID = req.params.id;
   const query = 'DELETE FROM publications WHERE id = $1 AND submitted = TRUE';
   db.result(query, [publicationID])

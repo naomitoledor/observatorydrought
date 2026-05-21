@@ -9,7 +9,12 @@
   
       document.getElementById('rasterForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        const geoserver_url = 'http://localhost:8080/geoserver';
+        const geoserver_url = window.APP_CONFIG && window.APP_CONFIG.geoserverUrl;
+        if (!geoserver_url) {
+          alert('GeoServer is not configured. Set GEOSERVER_URL in the deployment environment.');
+          return;
+        }
+
         const levels = ['gws', 'rtzsm', 'sfsm'];
         const year = document.getElementById('year').value;
         const month = document.getElementById('month').value;

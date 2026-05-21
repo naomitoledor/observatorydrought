@@ -1,2 +1,1 @@
-var postgressPass = "postgres" //o el que sea....
-module.exports = postgressPass;
+module.exports = process.env.PGPASSWORD || null;
