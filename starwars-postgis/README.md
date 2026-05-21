@@ -1,6 +1,6 @@
 ---
 title: Drought Observatory
-emoji: ":earth_americas:"
+emoji: "🌎"
 colorFrom: blue
 colorTo: green
 sdk: docker
